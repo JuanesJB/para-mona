@@ -1,0 +1,568 @@
+<title>Para ti, Mona</title>
+<style>
+  :root {
+    color-scheme: dark;
+    --night:   #1a1220;
+    --night-2: #241830;
+    --plum:    #2e1f3d;
+    --gold:    #e6b45c;
+    --gold-dim:#c9974a;
+    --rose:    #e89a8c;
+    --sage:    #93b490;
+    --cream:   #f5ece0;
+    --mauve:   #b3a0ad;
+    --line:    rgba(230,180,92,.22);
+    --serif: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
+    --sans: ui-sans-serif, system-ui, -apple-system, "Helvetica Neue", sans-serif;
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--night);
+    color: var(--cream);
+    font-family: var(--sans);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  #sky {
+    position: fixed;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    display: block;
+  }
+
+  .glow {
+    position: fixed;
+    z-index: 0;
+    border-radius: 50%;
+    filter: blur(90px);
+    opacity: .5;
+    pointer-events: none;
+  }
+  .glow.g1 { top: -140px; left: -120px; width: 420px; height: 420px;
+    background: radial-gradient(circle, rgba(230,180,92,.55), transparent 70%); }
+  .glow.g2 { bottom: -180px; right: -140px; width: 480px; height: 480px;
+    background: radial-gradient(circle, rgba(232,154,140,.45), transparent 70%); }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    max-width: 660px;
+    margin: 0 auto;
+    padding: 0 24px 96px;
+  }
+
+  /* ---- Hero ---- */
+  .hero {
+    text-align: center;
+    padding: 96px 0 40px;
+  }
+  .eyebrow {
+    font-size: .78rem;
+    letter-spacing: .32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 22px;
+  }
+  .eyebrow::before, .eyebrow::after {
+    content: "✦";
+    margin: 0 .7em;
+    color: var(--gold-dim);
+    font-size: .7em;
+    vertical-align: middle;
+  }
+  .hero h1 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: clamp(2.6rem, 8vw, 4.1rem);
+    line-height: 1.05;
+    letter-spacing: .5px;
+    margin: 0;
+    text-wrap: balance;
+    color: var(--cream);
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero .sub {
+    max-width: 42ch;
+    margin: 26px auto 0;
+    color: var(--mauve);
+    font-size: 1.06rem;
+  }
+
+  /* ---- Love note ---- */
+  .note {
+    position: relative;
+    margin: 48px 0 8px;
+    padding: 34px 34px 34px;
+    background: linear-gradient(160deg, rgba(46,31,61,.72), rgba(36,24,48,.55));
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    backdrop-filter: blur(4px);
+  }
+  .note p {
+    margin: 0;
+    font-family: var(--serif);
+    font-size: 1.22rem;
+    line-height: 1.7;
+    color: var(--cream);
+    text-wrap: pretty;
+  }
+  .note p + p { margin-top: 14px; }
+  .note .mark {
+    font-family: var(--serif);
+    font-size: 3.4rem;
+    line-height: 0;
+    color: var(--gold-dim);
+    position: absolute;
+    top: 26px;
+    left: 18px;
+    opacity: .35;
+  }
+
+  /* ---- Section heading ---- */
+  .plans-head {
+    text-align: center;
+    margin: 66px 0 30px;
+  }
+  .plans-head .k {
+    font-size: .78rem;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 0 0 8px;
+  }
+  .plans-head h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.9rem;
+    margin: 0;
+    color: var(--cream);
+  }
+
+  /* ---- Plan tickets ---- */
+  .plans { display: flex; flex-direction: column; gap: 20px; }
+
+  .ticket {
+    --accent: var(--gold);
+    display: grid;
+    grid-template-columns: 74px 1fr;
+    background: linear-gradient(150deg, rgba(38,26,50,.9), rgba(28,19,38,.82));
+    border: 1px solid rgba(255,255,255,.06);
+    border-radius: 18px;
+    overflow: hidden;
+    transition: transform .35s ease, border-color .35s ease, box-shadow .35s ease;
+  }
+  .ticket:hover {
+    transform: translateY(-4px);
+    border-color: color-mix(in srgb, var(--accent) 55%, transparent);
+    box-shadow: 0 18px 44px -20px color-mix(in srgb, var(--accent) 60%, transparent);
+  }
+  .ticket .stub {
+    position: relative;
+    background: color-mix(in srgb, var(--accent) 16%, transparent);
+    border-right: 1px dashed color-mix(in srgb, var(--accent) 45%, transparent);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+    padding: 18px 6px;
+  }
+  .ticket .stub .ico { font-size: 1.5rem; line-height: 1; }
+  .ticket .stub .n {
+    font-family: var(--serif);
+    font-size: .72rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-top: 6px;
+  }
+  .ticket .body { padding: 20px 22px; }
+  .ticket .place {
+    display: block;
+    font-size: .72rem;
+    letter-spacing: .26em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 6px;
+  }
+  .ticket .body h3 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.4rem;
+    margin: 0 0 6px;
+    color: var(--cream);
+  }
+  .ticket .body p {
+    margin: 0;
+    color: var(--mauve);
+    font-size: .98rem;
+  }
+  .ticket .pick {
+    margin-top: 14px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+  }
+  .ticket .pick label {
+    font-size: .7rem;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+    color: var(--accent);
+  }
+  .ticket .pick input[type="date"] {
+    font-family: var(--sans);
+    font-size: .9rem;
+    color: var(--cream);
+    background: color-mix(in srgb, var(--accent) 16%, transparent);
+    border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
+    padding: 6px 12px;
+    border-radius: 999px;
+    color-scheme: dark;
+    cursor: pointer;
+    transition: border-color .25s ease, background .25s ease;
+  }
+  .ticket .pick input[type="date"]:hover,
+  .ticket .pick input[type="date"]:focus-visible {
+    outline: none;
+    border-color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 26%, transparent);
+  }
+  .ticket .pick .done {
+    font-size: .8rem;
+    color: var(--sage);
+    opacity: 0;
+    transition: opacity .3s ease;
+  }
+  .ticket .pick .done.on { opacity: 1; }
+
+  .t-cine  { --accent: var(--gold); }
+  .t-golf  { --accent: var(--sage); }
+  .t-tacos { --accent: var(--rose); }
+
+  /* ---- Coordinar ---- */
+  .coord {
+    margin-top: 60px;
+    text-align: center;
+    padding: 40px 30px;
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    background: radial-gradient(120% 120% at 50% 0%, rgba(46,31,61,.6), rgba(26,18,32,.3));
+  }
+  .coord h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 1.7rem;
+    margin: 0 0 14px;
+    color: var(--gold);
+  }
+  .coord p {
+    margin: 0 auto;
+    max-width: 46ch;
+    color: var(--cream);
+    font-size: 1.04rem;
+  }
+  .coord .cta {
+    margin-top: 22px;
+    font-family: var(--sans);
+    font-size: 1rem;
+    font-weight: 600;
+    letter-spacing: .02em;
+    color: var(--night);
+    background: linear-gradient(135deg, var(--gold), var(--rose));
+    border: none;
+    padding: 13px 26px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    box-shadow: 0 10px 30px -12px rgba(230,180,92,.6);
+  }
+  .coord .cta:hover { transform: translateY(-2px); filter: brightness(1.05); }
+  .coord .cta:active { transform: translateY(0); }
+  .coord .cta:focus-visible { outline: 2px solid var(--cream); outline-offset: 3px; }
+
+  .coord .small {
+    margin-top: 16px;
+    color: var(--mauve);
+    font-size: .95rem;
+    text-wrap: pretty;
+  }
+
+  /* ---- Signature ---- */
+  .sign {
+    text-align: center;
+    margin-top: 54px;
+  }
+  .sign .divider {
+    width: 60px; height: 1px;
+    margin: 0 auto 22px;
+    background: linear-gradient(90deg, transparent, var(--gold-dim), transparent);
+  }
+  .sign p { margin: 0; color: var(--mauve); font-size: .95rem; }
+  .sign .from {
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 1.7rem;
+    color: var(--rose);
+    margin-top: 6px;
+  }
+
+  @media (max-width: 460px) {
+    .ticket { grid-template-columns: 60px 1fr; }
+    .note { padding: 28px 22px; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #sky { display: none; }
+    .ticket { transition: none; }
+  }
+</style>
+
+<canvas id="sky"></canvas>
+<div class="glow g1"></div>
+<div class="glow g2"></div>
+
+<div class="wrap">
+
+  <header class="hero">
+    <p class="eyebrow">Para ti, mi Mona</p>
+    <h1>Tres planes<br>y un mismo <em>nosotros</em></h1>
+    <p class="sub">Quiero que planeemos mejor las cosas, porque amo pasar tiempo contigo. Aunque las semanas sean caóticas, me gusta poder dedicarnos al otro — solo falta acomodar estas tres citas entre los dos.</p>
+  </header>
+
+  <section class="note">
+    <span class="mark">“</span>
+    <p>Mona, quiero que nos organicemos con calma, sin que ninguno tenga que correr ni sacrificar sus horarios. Que planear también se sienta bonito.</p>
+    <p>Miremos juntos qué día le queda bien a cada quien, y armemos nuestra propia agenda de amor. Sin presión, con ganas.</p>
+  </section>
+
+  <div class="plans-head">
+    <p class="k">Nuestra agenda</p>
+    <h2>Lo que nos espera</h2>
+  </div>
+
+  <div class="plans">
+
+    <article class="ticket t-cine">
+      <div class="stub">
+        <span class="ico">🎬</span>
+        <span class="n">Cine</span>
+      </div>
+      <div class="body">
+        <span class="place">LUMINA</span>
+        <h3>Miércoles de cine — <em>La Odisea</em></h3>
+        <p>Pantalla grande, tu mano en la mía y un viaje épico. El plan perfecto para mitad de semana.</p>
+        <div class="pick">
+          <label for="d-cine">Elige el día</label>
+          <input type="date" id="d-cine" data-plan="cine">
+          <span class="done" id="done-cine">✓ ¡anotado!</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="ticket t-golf">
+      <div class="stub">
+        <span class="ico">⛳</span>
+        <span class="n">Golf</span>
+      </div>
+      <div class="body">
+        <span class="place">Glounge</span>
+        <h3>Golf y buena comida</h3>
+        <p>Retarnos jugando golf, reírnos de nuestros tiros y rematar con algo rico para comer. Puro juego y compañía.</p>
+        <div class="pick">
+          <label for="d-golf">Elige el día</label>
+          <input type="date" id="d-golf" data-plan="golf">
+          <span class="done" id="done-golf">✓ ¡anotado!</span>
+        </div>
+      </div>
+    </article>
+
+    <article class="ticket t-tacos">
+      <div class="stub">
+        <span class="ico">🌮</span>
+        <span class="n">Tacos</span>
+      </div>
+      <div class="body">
+        <span class="place">Rogelio Red</span>
+        <h3>Noche de tacos</h3>
+        <p>Antojarnos sin culpa, pedir de más y disfrutar. Una noche sencilla y deliciosa, solo para los dos.</p>
+        <div class="pick">
+          <label for="d-tacos">Elige el día</label>
+          <input type="date" id="d-tacos" data-plan="tacos">
+          <span class="done" id="done-tacos">✓ ¡anotado!</span>
+        </div>
+      </div>
+    </article>
+
+  </div>
+
+  <section class="coord">
+    <h2>Cuadremos horarios</h2>
+    <p>Elige arriba el día que mejor te quede para cada plan — el que no choque con tu trabajo ni con tus ganas. Cuando termines, oprime el botón y me llegan tus fechas. La idea es sumar momentos, no restarte tiempo.</p>
+    <button id="send" class="cta">Enviarle mis fechas a Juan 💌</button>
+    <p class="small" id="hint">Tus fechas se guardan aquí aunque cierres la página. 💛</p>
+  </section>
+
+  <footer class="sign">
+    <div class="divider"></div>
+    <p>Con todo mi cariño,</p>
+    <p class="from">tuyo, siempre</p>
+  </footer>
+
+</div>
+
+<script>
+(function () {
+  const canvas = document.getElementById("sky");
+  if (!canvas || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  const ctx = canvas.getContext("2d");
+  let stars = [], w = 0, h = 0, raf = 0, t = 0;
+
+  function resize() {
+    w = canvas.width = window.innerWidth * devicePixelRatio;
+    h = canvas.height = window.innerHeight * devicePixelRatio;
+    canvas.style.width = window.innerWidth + "px";
+    canvas.style.height = window.innerHeight + "px";
+    const count = Math.min(150, Math.floor((window.innerWidth * window.innerHeight) / 9000));
+    stars = [];
+    for (let i = 0; i < count; i++) {
+      stars.push({
+        x: Math.pow(i / count, 0.5) * w,          // deterministic-ish spread, no Math.random at init edge
+        y: ((i * 2654435761) % 10000) / 10000 * h,
+        r: (((i * 40503) % 100) / 100) * 1.3 * devicePixelRatio + 0.3,
+        base: (((i * 92821) % 100) / 100) * 0.5 + 0.25,
+        sp: (((i * 13331) % 100) / 100) * 0.9 + 0.3,
+        ph: (((i * 7919) % 100) / 100) * 6.28,
+        gold: (i % 5 === 0)
+      });
+    }
+  }
+
+  function draw() {
+    t += 0.012;
+    ctx.clearRect(0, 0, w, h);
+    for (const s of stars) {
+      const tw = s.base + Math.sin(t * s.sp + s.ph) * 0.28;
+      ctx.beginPath();
+      ctx.arc(s.x, s.y, s.r, 0, 6.2832);
+      ctx.fillStyle = s.gold
+        ? "rgba(230,180,92," + Math.max(0, tw) + ")"
+        : "rgba(245,236,224," + Math.max(0, tw * 0.85) + ")";
+      ctx.fill();
+    }
+    raf = requestAnimationFrame(draw);
+  }
+
+  window.addEventListener("resize", resize);
+  resize();
+  draw();
+})();
+</script>
+
+<script>
+(function () {
+  var PLANS = [
+    { key: "cine",  emoji: "🎬", name: "Cine en LUMINA (La Odisea)" },
+    { key: "golf",  emoji: "⛳", name: "Golf y comida en Glounge" },
+    { key: "tacos", emoji: "🌮", name: "Tacos en Rogelio Red" }
+  ];
+  var STORE = "mona-fechas-v1";
+
+  function load() {
+    try { return JSON.parse(localStorage.getItem(STORE)) || {}; }
+    catch (e) { return {}; }
+  }
+  function save(data) {
+    try { localStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {}
+  }
+
+  function pretty(iso) {
+    // iso = "YYYY-MM-DD" — format without timezone drift
+    var p = iso.split("-");
+    if (p.length !== 3) return iso;
+    var months = ["enero","febrero","marzo","abril","mayo","junio","julio",
+                  "agosto","septiembre","octubre","noviembre","diciembre"];
+    var days = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+    var y = +p[0], m = +p[1], d = +p[2];
+    var dt = new Date(y, m - 1, d);          // local, no UTC parse
+    return days[dt.getDay()] + " " + d + " de " + months[m - 1];
+  }
+
+  var data = load();
+
+  PLANS.forEach(function (pl) {
+    var input = document.getElementById("d-" + pl.key);
+    var done = document.getElementById("done-" + pl.key);
+    if (!input) return;
+    if (data[pl.key]) {
+      input.value = data[pl.key];
+      if (done) done.classList.add("on");
+    }
+    input.addEventListener("change", function () {
+      if (input.value) { data[pl.key] = input.value; }
+      else { delete data[pl.key]; }
+      save(data);
+      if (done) done.classList.toggle("on", !!input.value);
+    });
+  });
+
+  var btn = document.getElementById("send");
+  var hint = document.getElementById("hint");
+
+  function buildMessage() {
+    var lines = ["Mi amor, ya elegí nuestras fechas 💛", ""];
+    var any = false;
+    PLANS.forEach(function (pl) {
+      if (data[pl.key]) {
+        any = true;
+        lines.push(pl.emoji + " " + pl.name + ": " + pretty(data[pl.key]));
+      } else {
+        lines.push(pl.emoji + " " + pl.name + ": (todavía lo pienso)");
+      }
+    });
+    lines.push("");
+    lines.push("¿Te cuadra así? 🥰");
+    return { text: lines.join("\n"), any: any };
+  }
+
+  function flash(msg) {
+    if (!hint) return;
+    var prev = hint.textContent;
+    hint.textContent = msg;
+    setTimeout(function () { hint.textContent = "Tus fechas se guardan aquí aunque cierres la página. 💛"; }, 4000);
+  }
+
+  if (btn) {
+    btn.addEventListener("click", function () {
+      var m = buildMessage();
+      if (!m.any) { flash("Elige al menos una fecha arriba y vuelve a intentar 😊"); return; }
+
+      if (navigator.share) {
+        navigator.share({ text: m.text }).then(function () {
+          flash("¡Enviado! Gracias, mi amor 💌");
+        }).catch(function () {/* usuario canceló */});
+        return;
+      }
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(m.text).then(function () {
+          flash("¡Copiado! Pégalo en tu chat con Juan 💌");
+        }).catch(function () {
+          window.prompt("Copia este mensaje y envíaselo a Juan:", m.text);
+        });
+        return;
+      }
+      window.prompt("Copia este mensaje y envíaselo a Juan:", m.text);
+    });
+  }
+})();
+</script>
