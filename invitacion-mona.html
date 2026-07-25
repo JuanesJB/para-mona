@@ -1,3 +1,9 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#1a1220">
 <title>Para ti, Mona</title>
 <style>
   :root {
@@ -212,39 +218,57 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    gap: 10px;
+    gap: 8px 12px;
   }
   .ticket .pick label {
-    font-size: .7rem;
-    letter-spacing: .18em;
+    flex-basis: 100%;
+    font-size: .72rem;
+    letter-spacing: .1em;
     text-transform: uppercase;
     color: var(--accent);
+    font-weight: 600;
   }
   .ticket .pick input[type="date"] {
     font-family: var(--sans);
-    font-size: .9rem;
+    font-size: 16px;                 /* evita el zoom automático en iOS */
+    line-height: 1.2;
+    min-height: 44px;                /* área táctil cómoda */
     color: var(--cream);
-    background: color-mix(in srgb, var(--accent) 16%, transparent);
-    border: 1px solid color-mix(in srgb, var(--accent) 42%, transparent);
-    padding: 6px 12px;
-    border-radius: 999px;
+    background: color-mix(in srgb, var(--accent) 20%, transparent);
+    border: 1.5px solid color-mix(in srgb, var(--accent) 55%, transparent);
+    padding: 8px 16px;
+    border-radius: 14px;
     color-scheme: dark;
     cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
     transition: border-color .25s ease, background .25s ease;
   }
   .ticket .pick input[type="date"]:hover,
   .ticket .pick input[type="date"]:focus-visible {
     outline: none;
     border-color: var(--accent);
-    background: color-mix(in srgb, var(--accent) 26%, transparent);
+    background: color-mix(in srgb, var(--accent) 30%, transparent);
   }
   .ticket .pick .done {
-    font-size: .8rem;
+    font-size: .82rem;
+    font-weight: 600;
     color: var(--sage);
     opacity: 0;
     transition: opacity .3s ease;
   }
   .ticket .pick .done.on { opacity: 1; }
+  .ticket .pick .cal {
+    flex-basis: 100%;
+    font-size: .82rem;
+    color: var(--accent);
+    text-decoration: none;
+    border-bottom: 1px solid color-mix(in srgb, var(--accent) 40%, transparent);
+    padding-bottom: 1px;
+    width: max-content;
+    transition: border-color .2s ease;
+  }
+  .ticket .pick .cal:hover { border-color: var(--accent); }
+  .ticket .pick .cal[hidden] { display: none; }
 
   .t-cine  { --accent: var(--gold); }
   .t-golf  { --accent: var(--sage); }
@@ -327,6 +351,8 @@
     .ticket { transition: none; }
   }
 </style>
+</head>
+<body>
 
 <canvas id="sky"></canvas>
 <div class="glow g1"></div>
@@ -363,9 +389,10 @@
         <h3>Miércoles de cine — <em>La Odisea</em></h3>
         <p>Pantalla grande, tu mano en la mía y un viaje épico. El plan perfecto para mitad de semana.</p>
         <div class="pick">
-          <label for="d-cine">Elige el día</label>
+          <label for="d-cine">📅 Toca para elegir el día</label>
           <input type="date" id="d-cine" data-plan="cine">
           <span class="done" id="done-cine">✓ ¡anotado!</span>
+          <a class="cal" id="cal-cine" target="_blank" rel="noopener" hidden>Agregar a mi calendario ↗</a>
         </div>
       </div>
     </article>
@@ -380,9 +407,10 @@
         <h3>Golf y buena comida</h3>
         <p>Retarnos jugando golf, reírnos de nuestros tiros y rematar con algo rico para comer. Puro juego y compañía.</p>
         <div class="pick">
-          <label for="d-golf">Elige el día</label>
+          <label for="d-golf">📅 Toca para elegir el día</label>
           <input type="date" id="d-golf" data-plan="golf">
           <span class="done" id="done-golf">✓ ¡anotado!</span>
+          <a class="cal" id="cal-golf" target="_blank" rel="noopener" hidden>Agregar a mi calendario ↗</a>
         </div>
       </div>
     </article>
@@ -397,9 +425,10 @@
         <h3>Noche de tacos</h3>
         <p>Antojarnos sin culpa, pedir de más y disfrutar. Una noche sencilla y deliciosa, solo para los dos.</p>
         <div class="pick">
-          <label for="d-tacos">Elige el día</label>
+          <label for="d-tacos">📅 Toca para elegir el día</label>
           <input type="date" id="d-tacos" data-plan="tacos">
           <span class="done" id="done-tacos">✓ ¡anotado!</span>
+          <a class="cal" id="cal-tacos" target="_blank" rel="noopener" hidden>Agregar a mi calendario ↗</a>
         </div>
       </div>
     </article>
@@ -471,31 +500,44 @@
 
 <script>
 (function () {
+  var WHATSAPP = "573103683884";               // WhatsApp de Juan
   var PLANS = [
-    { key: "cine",  emoji: "🎬", name: "Cine en LUMINA (La Odisea)" },
-    { key: "golf",  emoji: "⛳", name: "Golf y comida en Glounge" },
-    { key: "tacos", emoji: "🌮", name: "Tacos en Rogelio Red" }
+    { key: "cine",  emoji: "🎬", name: "Cine en LUMINA (La Odisea)",
+      calTitle: "🎬 Cine con Juan — La Odisea (LUMINA)", calDetails: "Miércoles de cine en LUMINA para ver La Odisea 💛" },
+    { key: "golf",  emoji: "⛳", name: "Golf y comida en Glounge",
+      calTitle: "⛳ Golf y comida con Juan (Glounge)", calDetails: "Golf y buena comida en Glounge 💛" },
+    { key: "tacos", emoji: "🌮", name: "Tacos en Rogelio Red",
+      calTitle: "🌮 Tacos con Juan (Rogelio Red)", calDetails: "Noche de tacos en Rogelio Red 💛" }
   ];
   var STORE = "mona-fechas-v1";
 
-  function load() {
-    try { return JSON.parse(localStorage.getItem(STORE)) || {}; }
-    catch (e) { return {}; }
-  }
-  function save(data) {
-    try { localStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {}
-  }
+  function load() { try { return JSON.parse(localStorage.getItem(STORE)) || {}; } catch (e) { return {}; } }
+  function save(data) { try { localStorage.setItem(STORE, JSON.stringify(data)); } catch (e) {} }
 
+  var months = ["enero","febrero","marzo","abril","mayo","junio","julio",
+                "agosto","septiembre","octubre","noviembre","diciembre"];
+  var days = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
+
+  function parseISO(iso) {
+    var p = (iso || "").split("-");
+    if (p.length !== 3) return null;
+    return new Date(+p[0], +p[1] - 1, +p[2]);   // local, sin desfase UTC
+  }
   function pretty(iso) {
-    // iso = "YYYY-MM-DD" — format without timezone drift
-    var p = iso.split("-");
-    if (p.length !== 3) return iso;
-    var months = ["enero","febrero","marzo","abril","mayo","junio","julio",
-                  "agosto","septiembre","octubre","noviembre","diciembre"];
-    var days = ["domingo","lunes","martes","miércoles","jueves","viernes","sábado"];
-    var y = +p[0], m = +p[1], d = +p[2];
-    var dt = new Date(y, m - 1, d);          // local, no UTC parse
-    return days[dt.getDay()] + " " + d + " de " + months[m - 1];
+    var dt = parseISO(iso);
+    if (!dt) return iso;
+    return days[dt.getDay()] + " " + dt.getDate() + " de " + months[dt.getMonth()];
+  }
+  function pad(n) { return (n < 10 ? "0" : "") + n; }
+  function ymd(dt) { return "" + dt.getFullYear() + pad(dt.getMonth() + 1) + pad(dt.getDate()); }
+  function calLink(pl, iso) {
+    var dt = parseISO(iso);
+    if (!dt) return "#";
+    var next = new Date(dt.getTime() + 86400000);   // evento de día completo
+    return "https://calendar.google.com/calendar/render?action=TEMPLATE"
+      + "&text=" + encodeURIComponent(pl.calTitle)
+      + "&dates=" + ymd(dt) + "/" + ymd(next)
+      + "&details=" + encodeURIComponent(pl.calDetails);
   }
 
   var data = load();
@@ -503,66 +545,58 @@
   PLANS.forEach(function (pl) {
     var input = document.getElementById("d-" + pl.key);
     var done = document.getElementById("done-" + pl.key);
+    var cal = document.getElementById("cal-" + pl.key);
     if (!input) return;
-    if (data[pl.key]) {
-      input.value = data[pl.key];
-      if (done) done.classList.add("on");
+
+    function refresh() {
+      var has = !!input.value;
+      if (done) done.classList.toggle("on", has);
+      if (cal) {
+        if (has) { cal.href = calLink(pl, input.value); cal.hidden = false; }
+        else { cal.hidden = true; }
+      }
     }
+    if (data[pl.key]) input.value = data[pl.key];
+    refresh();
+
     input.addEventListener("change", function () {
-      if (input.value) { data[pl.key] = input.value; }
-      else { delete data[pl.key]; }
+      if (input.value) data[pl.key] = input.value; else delete data[pl.key];
       save(data);
-      if (done) done.classList.toggle("on", !!input.value);
+      refresh();
     });
   });
 
   var btn = document.getElementById("send");
   var hint = document.getElementById("hint");
+  var defaultHint = "Tus fechas se guardan aquí aunque cierres la página. 💛";
 
   function buildMessage() {
-    var lines = ["Mi amor, ya elegí nuestras fechas 💛", ""];
+    var lines = ["Juan, ya elegí nuestras fechas 💛", ""];
     var any = false;
     PLANS.forEach(function (pl) {
-      if (data[pl.key]) {
-        any = true;
-        lines.push(pl.emoji + " " + pl.name + ": " + pretty(data[pl.key]));
-      } else {
-        lines.push(pl.emoji + " " + pl.name + ": (todavía lo pienso)");
-      }
+      if (data[pl.key]) { any = true; lines.push(pl.emoji + " " + pl.name + ": " + pretty(data[pl.key])); }
+      else { lines.push(pl.emoji + " " + pl.name + ": (todavía lo pienso)"); }
     });
-    lines.push("");
-    lines.push("¿Te cuadra así? 🥰");
+    lines.push("", "¿Te cuadra así? 🥰");
     return { text: lines.join("\n"), any: any };
   }
 
   function flash(msg) {
     if (!hint) return;
-    var prev = hint.textContent;
     hint.textContent = msg;
-    setTimeout(function () { hint.textContent = "Tus fechas se guardan aquí aunque cierres la página. 💛"; }, 4000);
+    setTimeout(function () { hint.textContent = defaultHint; }, 5000);
   }
 
   if (btn) {
     btn.addEventListener("click", function () {
       var m = buildMessage();
       if (!m.any) { flash("Elige al menos una fecha arriba y vuelve a intentar 😊"); return; }
-
-      if (navigator.share) {
-        navigator.share({ text: m.text }).then(function () {
-          flash("¡Enviado! Gracias, mi amor 💌");
-        }).catch(function () {/* usuario canceló */});
-        return;
-      }
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(m.text).then(function () {
-          flash("¡Copiado! Pégalo en tu chat con Juan 💌");
-        }).catch(function () {
-          window.prompt("Copia este mensaje y envíaselo a Juan:", m.text);
-        });
-        return;
-      }
-      window.prompt("Copia este mensaje y envíaselo a Juan:", m.text);
+      var wa = "https://wa.me/" + WHATSAPP + "?text=" + encodeURIComponent(m.text);
+      window.open(wa, "_blank", "noopener");
+      flash("Se abre WhatsApp con Juan — solo dale enviar 💌");
     });
   }
 })();
 </script>
+</body>
+</html>
