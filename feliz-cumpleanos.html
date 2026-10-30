@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<meta name="theme-color" content="#0f1b36" />
+<title>Feliz cumpleaños, mona</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet" />
+<script>document.documentElement.classList.add("js")</script>
+<style>
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  :root {
+    --noche:    #0f1b36;
+    --noche-2:  #1d2f58;
+    --azul:     #34507f;
+    --papel:    #f7f0e1;
+    --papel-2:  #efe4cd;
+    --tinta:    #2c2a35;
+    --tinta-2:  #5d5866;
+    --oro:      #f2c14e;
+    --rosa:     #d2464f;
+    --verde:    #6fa77f;
+    --zorro:    #e5803c;
+    --arena:    #d8b98c;
+  }
+
+  html { background: var(--noche); }
+
+  body {
+    min-height: 100vh;
+    background: linear-gradient(180deg, var(--noche) 0%, var(--noche-2) 55%, #2c3f6c 100%) fixed;
+    color: var(--tinta);
+    font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+    overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* cielo: solo CSS, para que se vea igual dentro de WhatsApp */
+  .cielo {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+    overflow: hidden;
+  }
+
+  .capa {
+    position: absolute;
+    inset: 0;
+    animation: titilar-cielo var(--d, 4s) ease-in-out infinite alternate;
+  }
+  .c1 {
+    --d: 3.2s;
+    background-image:
+      radial-gradient(0.8px 0.8px at 39.6% 15.5%, #f7d58a 60%, transparent 100%),
+      radial-gradient(0.6px 0.6px at 91.8% 80.0%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 53.7% 27.7%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.7px 0.7px at 21.4% 92.7%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 80.0% 19.3%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 73.2% 85.5%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 60.6% 67.2%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.0px 1.0px at 47.4% 8.9%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 54.8% 30.0%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 88.2% 84.8%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.0px 1.0px at 59.9% 43.1%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.7px 0.7px at 81.3% 4.3%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.6px 0.6px at 28.0% 53.5%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.9px 0.9px at 99.7% 19.6%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.9px 0.9px at 63.3% 27.6%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 32.1% 55.9%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 6.2% 22.9%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 23.7% 33.1%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.7px 0.7px at 4.3% 69.7%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 73.5% 96.0%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.6px 0.6px at 96.6% 77.5%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.9px 0.9px at 62.1% 81.8%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 44.4% 13.6%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.9px 0.9px at 33.1% 0.9%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.6px 0.6px at 78.4% 36.3%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 98.2% 42.4%, #f7d58a 60%, transparent 100%),
+      radial-gradient(0.7px 0.7px at 5.5% 16.9%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 4.1% 49.1%, #f7d58a 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 12.2% 52.9%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 98.8% 47.8%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 3.7% 42.1%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 83.1% 49.9%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.6px 0.6px at 24.2% 20.8%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 14.2% 5.1%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 99.1% 40.3%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 79.1% 74.5%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.9px 0.9px at 21.1% 87.4%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 33.7% 65.7%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 81.5% 52.8%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 26.8% 92.3%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 97.1% 96.2%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 89.9% 12.8%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 6.0% 16.7%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.0px 1.0px at 74.6% 92.7%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 92.2% 1.3%, #f7d58a 60%, transparent 100%);
+  }
+  .c2 {
+    --d: 4.6s;
+    animation-delay: -2s;
+    background-image:
+      radial-gradient(1.5px 1.5px at 81.0% 78.3%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 87.9% 20.2%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 89.2% 77.4%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 2.6% 3.4%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 86.5% 60.8%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 76.8% 52.3%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.7px 0.7px at 82.8% 8.5%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 78.7% 31.1%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.9px 0.9px at 96.6% 9.5%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 88.5% 51.2%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 77.7% 6.7%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 30.2% 83.6%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 16.7% 87.4%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.9px 0.9px at 49.4% 33.9%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 71.1% 0.6%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.0px 1.0px at 48.7% 71.6%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 24.5% 84.8%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.0px 1.0px at 98.6% 62.7%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 31.3% 91.3%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 30.6% 86.8%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 44.2% 14.1%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 66.2% 13.3%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 80.9% 17.8%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 57.6% 35.0%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 40.3% 93.6%, #f7d58a 60%, transparent 100%),
+      radial-gradient(0.9px 0.9px at 32.7% 30.1%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.7px 0.7px at 94.9% 83.0%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 95.3% 15.8%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.2px 1.2px at 57.4% 93.8%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 11.7% 65.2%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 61.8% 83.1%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.0px 1.0px at 40.6% 59.9%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 31.0% 23.0%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.0px 1.0px at 99.6% 89.9%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 81.7% 28.4%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.1px 1.1px at 18.4% 54.0%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 36.4% 95.1%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.3px 1.3px at 6.8% 97.4%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.6px 1.6px at 60.4% 31.2%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(0.8px 0.8px at 22.2% 92.8%, #fdf6e6 60%, transparent 100%);
+  }
+  .c3 {
+    --d: 2.6s;
+    animation-delay: -1s;
+    background-image:
+      radial-gradient(2.1px 2.1px at 14.9% 23.8%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.6px 1.6px at 16.3% 79.0%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.9px 1.9px at 95.9% 26.2%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.8px 1.8px at 9.7% 3.2%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.7px 1.7px at 6.1% 99.3%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.6px 1.6px at 70.2% 73.1%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.9px 1.9px at 87.8% 71.9%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.8px 1.8px at 72.4% 55.2%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.8px 1.8px at 84.4% 48.4%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 87.5% 25.6%, #f7d58a 60%, transparent 100%),
+      radial-gradient(1.7px 1.7px at 86.2% 32.8%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.7px 1.7px at 2.8% 87.7%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(1.4px 1.4px at 15.3% 15.7%, #fdf6e6 60%, transparent 100%),
+      radial-gradient(2.1px 2.1px at 23.2% 55.4%, #fdf6e6 60%, transparent 100%);
+  }
+
+  @keyframes titilar-cielo {
+    from { opacity: 0.35; }
+    to   { opacity: 1; }
+  }
+
+  .fugaz {
+    position: absolute;
+    width: 120px;
+    height: 1.5px;
+    background: linear-gradient(90deg, rgba(255,248,225,0.95), rgba(255,248,225,0));
+    border-radius: 2px;
+    opacity: 0;
+    transform: rotate(-28deg);
+    animation: fugaz 9s linear infinite;
+  }
+  .f1 { top: 14%; left: 70%; animation-delay: 2s; }
+  .f2 { top: 38%; left: 85%; animation-delay: 6.5s; animation-duration: 11s; }
+  .f3 { top: 6%;  left: 40%; animation-delay: 4s; animation-duration: 13s; }
+
+  @keyframes fugaz {
+    0%   { opacity: 0; transform: rotate(-28deg) translateX(0); }
+    2%   { opacity: 1; }
+    9%   { opacity: 0; transform: rotate(-28deg) translateX(-260px); }
+    100% { opacity: 0; transform: rotate(-28deg) translateX(-260px); }
+  }
+
+  /* cuando sopla la vela, el cielo se ríe (navegadores que soportan :has) */
+  body:has(#vela:checked) .capa { animation-duration: 0.9s; }
+  body:has(#vela:checked) .fugaz { animation-duration: 3.5s; }
+
+  main {
+    position: relative;
+    z-index: 1;
+    max-width: 460px;
+    margin: 0 auto;
+    padding: 0 16px calc(80px + env(safe-area-inset-bottom));
+  }
+
+  svg { display: block; overflow: visible; }
+
+  /* ── portada ── */
+  .portada {
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 40px 0 30px;
+  }
+
+  .portada .ilustra {
+    width: 100%;
+    max-width: 270px;
+    margin-bottom: 18px;
+    animation: llegar 1.6s cubic-bezier(.2,.7,.3,1) both;
+  }
+
+  @keyframes llegar {
+    from { opacity: 0; transform: translateY(18px) scale(0.96); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  .para {
+    font-family: 'Caveat', cursive;
+    font-size: 1.35rem;
+    color: rgba(242,193,78,0.85);
+    letter-spacing: 0.02em;
+  }
+
+  .titulo {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 400;
+    color: #fdf6e6;
+    font-size: clamp(2.3rem, 11vw, 3.4rem);
+    line-height: 0.98;
+    margin: 6px 0 14px;
+    text-shadow: 0 2px 24px rgba(242,193,78,0.25);
+  }
+
+  .titulo span {
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--oro);
+    font-size: 1.05em;
+    margin-top: 4px;
+  }
+
+  .bajada {
+    font-size: 1.12rem;
+    line-height: 1.5;
+    color: rgba(253,246,230,0.72);
+    max-width: 290px;
+    font-style: italic;
+  }
+
+  .baja {
+    margin-top: 34px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    color: rgba(253,246,230,0.55);
+    animation: flotar 2.6s ease-in-out infinite;
+  }
+
+  @keyframes flotar {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(7px); }
+  }
+
+  /* ── capítulos ── */
+  .capitulo {
+    margin: 70px 0 0;
+  }
+
+  .capitulo .ilustra {
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto -18px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hoja {
+    position: relative;
+    background-color: var(--papel);
+    background-image:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 0.45 0 0 0 0 0.36 0 0 0 0 0.22 0 0 0 0.09 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>"),
+      radial-gradient(ellipse at 30% 0%, rgba(255,255,255,0.7), transparent 60%),
+      radial-gradient(ellipse at 100% 100%, rgba(214,186,140,0.35), transparent 60%);
+    border-radius: 4px 6px 5px 3px;
+    padding: 40px 24px 30px;
+    box-shadow:
+      0 1px 0 rgba(255,255,255,0.4) inset,
+      0 18px 40px -14px rgba(0,0,0,0.55);
+    animation: aparecer 1.1s cubic-bezier(.2,.7,.3,1) both;
+  }
+
+  .capitulo:nth-of-type(odd)  .hoja { rotate: -0.6deg; }
+  .capitulo:nth-of-type(even) .hoja { rotate: 0.7deg; }
+
+  .ilustra { animation: aparecer 1.2s cubic-bezier(.2,.7,.3,1) both; }
+
+  @keyframes aparecer {
+    from { opacity: 0; transform: translateY(20px); }
+    to   { opacity: 1; transform: none; }
+  }
+
+  /* los interruptores invisibles que hacen funcionar todo sin JavaScript */
+  .interruptor {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+    pointer-events: none;
+  }
+
+  .num {
+    display: block;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.05rem;
+    color: #9a7a3c;
+    letter-spacing: 0.04em;
+  }
+
+  .hoja h2 {
+    text-align: center;
+    font-weight: 500;
+    font-style: italic;
+    font-size: 1.95rem;
+    line-height: 1.1;
+    margin: 2px 0 18px;
+    color: var(--tinta);
+  }
+
+  .cita {
+    font-family: 'Caveat', cursive;
+    font-size: 1.32rem;
+    line-height: 1.35;
+    color: var(--azul);
+    text-align: center;
+    padding: 0 6px 18px;
+    margin-bottom: 18px;
+    border-bottom: 1px dashed rgba(52,80,127,0.25);
+  }
+
+  .cita small {
+    display: block;
+    font-size: 0.82rem;
+    color: rgba(52,80,127,0.6);
+    margin-top: 4px;
+  }
+
+  .hoja p {
+    font-size: 1.2rem;
+    line-height: 1.62;
+    color: #3b3742;
+  }
+
+  .hoja p + p { margin-top: 14px; }
+
+  .hoja em { color: var(--rosa); font-style: italic; }
+
+  .mano {
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-size: 1.45rem;
+    line-height: 1.35;
+    color: var(--rosa);
+    margin-top: 18px;
+    text-align: center;
+  }
+
+  .pista {
+    display: block;
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.05rem;
+    color: rgba(253,246,230,0.6);
+    margin-top: 26px;
+  }
+
+  /* ── boa / sombrero ── */
+  .boa-btn {
+    display: block;
+    width: 100%;
+    cursor: pointer;
+    margin: 4px 0 6px;
+  }
+  .boa-btn svg { width: 100%; }
+  #elefante { opacity: 0; transition: opacity 1s ease; }
+  #boaRelleno { transition: fill-opacity 1s ease; }
+  #boa:checked + .boa-btn #elefante { opacity: 1; }
+  #boa:checked + .boa-btn #boaRelleno { fill-opacity: 0.18; }
+  .boa-etiqueta {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    color: var(--tinta-2);
+    margin-bottom: 16px;
+  }
+  .boa-etiqueta .despues { display: none; }
+  #boa:checked ~ .boa-etiqueta .antes { display: none; }
+  #boa:checked ~ .boa-etiqueta .despues { display: inline; }
+
+  /* ── atardeceres ── */
+  .soles {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin: 18px 0 6px;
+  }
+
+  .sol {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    font-family: 'Caveat', cursive;
+    font-size: 1rem;
+    color: var(--tinta-2);
+  }
+
+  .sol i {
+    display: block;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 50% 40%, #fbe3a0, #f2a65a 55%, #d9654f 100%);
+    box-shadow: 0 0 0 4px rgba(242,166,90,0.15), 0 0 22px rgba(242,140,80,0.45);
+    transition: transform 0.4s ease, filter 0.4s ease;
+    animation: latir 3s ease-in-out infinite;
+  }
+  .sol:nth-child(2) i { animation-delay: .4s; }
+  .sol:nth-child(3) i { animation-delay: .8s; }
+  .sol:nth-child(4) i { animation-delay: 1.2s; }
+  .sol:nth-child(5) i { animation-delay: 1.6s; }
+  .sol:nth-child(6) i { animation-delay: 2s; }
+
+  @keyframes latir {
+    0%, 100% { transform: scale(1); }
+    50%      { transform: scale(1.06); }
+  }
+
+  #s1:checked ~ .soles [for=s1] i, #s2:checked ~ .soles [for=s2] i, #s3:checked ~ .soles [for=s3] i,
+  #s4:checked ~ .soles [for=s4] i, #s5:checked ~ .soles [for=s5] i, #s6:checked ~ .soles [for=s6] i {
+    animation: none;
+    transform: scale(1.18);
+    box-shadow: 0 0 0 5px rgba(242,166,90,0.3), 0 0 34px rgba(242,140,80,0.8);
+  }
+  #s1:checked ~ .soles [for=s1], #s2:checked ~ .soles [for=s2], #s3:checked ~ .soles [for=s3],
+  #s4:checked ~ .soles [for=s4], #s5:checked ~ .soles [for=s5], #s6:checked ~ .soles [for=s6] { color: #8a3f2e; }
+
+  .deseo span { display: none; animation: aparecer 0.6s ease both; }
+  .deseo .d0 { display: inline; }
+  .soles-caja input:checked ~ .deseo .d0 { display: none; }
+  #s1:checked ~ .deseo .d1, #s2:checked ~ .deseo .d2, #s3:checked ~ .deseo .d3,
+  #s4:checked ~ .deseo .d4, #s5:checked ~ .deseo .d5, #s6:checked ~ .deseo .d6 { display: inline; }
+
+  .deseo {
+    min-height: 92px;
+    margin-top: 14px;
+    padding: 16px 14px;
+    border-radius: 6px;
+    background: linear-gradient(180deg, rgba(242,166,90,0.12), rgba(217,101,79,0.10));
+    font-family: 'Caveat', cursive;
+    font-size: 1.42rem;
+    line-height: 1.3;
+    color: #8a3f2e;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── final ── */
+  .vela-btns {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .boton {
+    display: inline-block;
+    cursor: pointer;
+    font-family: 'Caveat', cursive;
+    font-size: 1.45rem;
+    font-weight: 600;
+    color: var(--noche);
+    background: linear-gradient(180deg, #f8d77a, var(--oro));
+    padding: 12px 30px;
+    border-radius: 999px;
+    box-shadow: 0 10px 26px -10px rgba(242,193,78,0.9), 0 0 0 1px rgba(255,255,255,0.4) inset;
+    transition: transform 0.2s ease;
+  }
+  .boton:active { transform: scale(0.95); }
+
+  #llama { transform-origin: 186px 92px; animation: titilar 0.18s ease-in-out infinite alternate; }
+  @keyframes titilar {
+    from { transform: scale(1, 1) rotate(-2deg); }
+    to   { transform: scale(0.94, 1.08) rotate(2deg); }
+  }
+  #vela:checked ~ .ilustra #llama { animation: none; opacity: 0; transition: opacity 0.4s ease; }
+  #humo { opacity: 0; }
+  #vela:checked ~ .ilustra #humo { animation: humo 2.4s ease-out forwards; }
+  @keyframes humo {
+    0%   { opacity: 0.8; transform: translateY(0); }
+    100% { opacity: 0;   transform: translateY(-34px); }
+  }
+
+  .carta {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 2.2s ease, opacity 1.6s ease 0.4s;
+  }
+  #vela:checked ~ .hoja .carta { max-height: 2600px; opacity: 1; }
+  #vela:checked ~ .hoja .vela-btns { display: none; }
+
+  /* chispas al soplar */
+  #final { position: relative; }
+  .chispas {
+    position: absolute;
+    left: 62%;
+    top: 92px;
+    width: 0;
+    height: 0;
+    z-index: 3;
+    pointer-events: none;
+  }
+  .chispas i {
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    margin: -3.5px;
+    border-radius: 50%;
+    background: var(--c, #f2c14e);
+    box-shadow: 0 0 10px var(--c, #f2c14e);
+    opacity: 0;
+  }
+  #vela:checked ~ .chispas i { animation: estallar 1.8s cubic-bezier(.15,.7,.3,1) var(--t, 0s) both; }
+  @keyframes estallar {
+    0%   { opacity: 1; transform: translate(0, 0) scale(0.4); }
+    70%  { opacity: 1; }
+    100% { opacity: 0; transform: translate(var(--x), var(--y)) scale(1); }
+  }
+
+  .carta .encab {
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    color: var(--rosa);
+    text-align: center;
+    margin: 26px 0 16px;
+  }
+
+  .firma {
+    font-family: 'Caveat', cursive;
+    font-size: 2rem;
+    color: var(--tinta);
+    text-align: right;
+    margin-top: 22px;
+  }
+
+  .posdata {
+    margin-top: 24px;
+    padding-top: 16px;
+    border-top: 1px dashed rgba(52,80,127,0.25);
+    font-family: 'Caveat', cursive;
+    font-size: 1.2rem !important;
+    line-height: 1.4 !important;
+    color: var(--azul) !important;
+    text-align: center;
+  }
+
+  .fin {
+    text-align: center;
+    margin-top: 40px;
+    font-family: 'Caveat', cursive;
+    font-size: 1.15rem;
+    color: rgba(253,246,230,0.55);
+    opacity: 0;
+    transition: opacity 1.5s ease 1.5s;
+  }
+  #vela:checked ~ .fin { opacity: 1; }
+
+  /* animaciones dentro de las ilustraciones */
+  .bufanda { transform-origin: 150px 60px; animation: viento 3.4s ease-in-out infinite; }
+  @keyframes viento {
+    0%, 100% { transform: rotate(0deg) skewX(0deg); }
+    50%      { transform: rotate(-5deg) skewX(-6deg); }
+  }
+  .asteroide { animation: girar 9s ease-in-out infinite; transform-origin: 150px 200px; }
+  @keyframes girar {
+    0%, 100% { transform: translateY(0) rotate(-1.2deg); }
+    50%      { transform: translateY(-6px) rotate(1.2deg); }
+  }
+  .cola { transform-origin: 72px 132px; animation: menear 2.8s ease-in-out infinite; }
+  @keyframes menear {
+    0%, 100% { transform: rotate(0deg); }
+    50%      { transform: rotate(7deg); }
+  }
+  .trigo { transform-origin: bottom center; transform-box: fill-box; animation: trigo 3s ease-in-out infinite; }
+  .trigo:nth-child(2n) { animation-delay: -1.2s; }
+  .trigo:nth-child(3n) { animation-delay: -2s; }
+  @keyframes trigo {
+    0%, 100% { transform: rotate(-3deg); }
+    50%      { transform: rotate(4deg); }
+  }
+
+  /* ── entrada y música (solo cuando hay JavaScript, p. ej. en el link) ── */
+  .sobre, .musica { display: none; }
+
+  .js .sobre {
+    position: fixed;
+    inset: 0;
+    z-index: 50;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 24px;
+    cursor: pointer;
+    background: radial-gradient(circle at 50% 42%, rgba(52,80,127,0.55), rgba(15,27,54,0.97) 70%);
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
+    transition: opacity 1s ease, visibility 1s;
+  }
+  .js .sobre.fuera { opacity: 0; visibility: hidden; }
+
+  .sobre-estrella {
+    font-size: 3.2rem;
+    color: var(--oro);
+    text-shadow: 0 0 30px rgba(242,193,78,0.8);
+    animation: latir 2.2s ease-in-out infinite;
+  }
+  .sobre-t {
+    font-style: italic;
+    font-size: 2.1rem;
+    color: #fdf6e6;
+    margin: 14px 0 8px;
+  }
+  .sobre-s {
+    font-family: 'Caveat', cursive;
+    font-size: 1.3rem;
+    color: rgba(242,193,78,0.85);
+  }
+
+  .js .musica.on {
+    position: fixed;
+    left: 50%;
+    bottom: calc(14px + env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: calc(100% - 32px);
+    padding: 7px 16px 7px 7px;
+    border-radius: 999px;
+    background: rgba(15,27,54,0.82);
+    -webkit-backdrop-filter: blur(8px);
+    backdrop-filter: blur(8px);
+    box-shadow: 0 0 0 1px rgba(242,193,78,0.25), 0 10px 24px -8px rgba(0,0,0,0.6);
+    animation: aparecer 0.8s ease both;
+  }
+
+  .disco {
+    flex: none;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    cursor: pointer;
+    background:
+      radial-gradient(circle, var(--oro) 0 5px, #1a1a22 6px 8px, transparent 9px),
+      repeating-radial-gradient(circle, #24242e 0 1.5px, #15151c 1.5px 3px);
+    box-shadow: 0 0 0 2px rgba(242,193,78,0.35);
+  }
+  .sonando .disco { animation: rodar 3.2s linear infinite; }
+  @keyframes rodar { to { transform: rotate(360deg); } }
+
+  .cancion {
+    min-width: 0;
+    font-family: 'Caveat', cursive;
+    line-height: 1.1;
+    color: #fdf6e6;
+  }
+  .cancion b { display: block; font-size: 1.15rem; font-weight: 600; color: var(--oro); }
+  .cancion span { display: block; font-size: 0.92rem; opacity: 0.75; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+  /* el reproductor queda guardado; si el celular no deja arrancar solo, aparece para darle play */
+  .yt {
+    position: absolute;
+    left: 50%;
+    bottom: calc(100% + 10px);
+    transform: translateX(-50%);
+    width: 220px;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+  }
+  .yt iframe { display: block; width: 220px; height: 124px; border: 0; border-radius: 10px; }
+  .ayuda .yt { opacity: 1; pointer-events: auto; }
+  .yt-pista {
+    display: none;
+    font-family: 'Caveat', cursive;
+    font-size: 1.1rem;
+    color: var(--oro);
+    text-align: center;
+    margin-bottom: 6px;
+  }
+  .ayuda .yt-pista { display: block; }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition-duration: 0.01s !important; }
+    .hoja, .ilustra { opacity: 1; transform: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cielo" aria-hidden="true"><i class="capa c1"></i><i class="capa c2"></i><i class="capa c3"></i><i class="fugaz f1"></i><i class="fugaz f2"></i><i class="fugaz f3"></i></div>
+
+<!-- piezas reutilizables -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <filter id="acuarela" x="-10%" y="-10%" width="120%" height="120%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="ruido" />
+      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="3.2" />
+    </filter>
+
+    <radialGradient id="roca" cx="40%" cy="25%" r="80%">
+      <stop offset="0%" stop-color="#e3c697" />
+      <stop offset="60%" stop-color="#b8916a" />
+      <stop offset="100%" stop-color="#7c5c45" />
+    </radialGradient>
+
+    <radialGradient id="ocaso" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fde6a6" />
+      <stop offset="55%" stop-color="#f4a25a" />
+      <stop offset="100%" stop-color="#d9654f" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- el principito -->
+    <g id="principito">
+      <path d="M143,100 L142,120 M157,100 L158,120" stroke="#2f4a3a" stroke-width="5" stroke-linecap="round" />
+      <path d="M137,121 L147,121 M153,121 L163,121" stroke="#3d3a33" stroke-width="5" stroke-linecap="round" />
+      <path d="M134,62 C140,60 160,60 166,62 L176,104 C160,108 140,108 124,104 Z" fill="#6fa77f" stroke="#2f4a3a" stroke-width="1.6" stroke-linejoin="round" />
+      <path d="M127,92 C142,95 158,95 173,92" fill="none" stroke="#2f4a3a" stroke-width="1.2" opacity=".6" />
+      <circle cx="150" cy="74" r="1.6" fill="#f2c14e" />
+      <circle cx="150" cy="82" r="1.6" fill="#f2c14e" />
+      <g class="bufanda">
+        <path d="M144,58 C166,52 188,38 214,44 C200,50 190,58 176,60 C190,62 200,68 206,74 C186,72 168,68 152,66 Z" fill="#f3c64b" stroke="#a9802a" stroke-width="1.2" stroke-linejoin="round" />
+      </g>
+      <circle cx="150" cy="44" r="15" fill="#f6dcc2" stroke="#7a5a48" stroke-width="1.2" />
+      <path d="M134,41 L135,27 L141,33 L145,19 L151,30 L157,18 L160,31 L166,23 L166,41 C160,32 141,32 134,41 Z" fill="#f2c14e" stroke="#a9802a" stroke-width="1.2" stroke-linejoin="round" />
+      <circle cx="145" cy="46" r="1.3" fill="#2c2a35" />
+      <circle cx="155" cy="46" r="1.3" fill="#2c2a35" />
+      <circle cx="141" cy="51" r="2.6" fill="#ef9c9c" opacity=".55" />
+      <circle cx="159" cy="51" r="2.6" fill="#ef9c9c" opacity=".55" />
+    </g>
+
+    <!-- el planeta -->
+    <g id="planeta">
+      <circle cx="150" cy="232" r="112" fill="url(#roca)" stroke="#5e4535" stroke-width="1.6" />
+      <ellipse cx="108" cy="190" rx="14" ry="7" fill="#9c7656" opacity=".55" />
+      <ellipse cx="190" cy="215" rx="20" ry="9" fill="#9c7656" opacity=".5" />
+      <ellipse cx="135" cy="250" rx="10" ry="5" fill="#9c7656" opacity=".5" />
+      <ellipse cx="220" cy="175" rx="8" ry="4" fill="#9c7656" opacity=".45" />
+      <!-- volcancito -->
+      <path d="M62,153 L72,136 L84,136 L94,151 Z" fill="#8a5a44" stroke="#5e4535" stroke-width="1.4" stroke-linejoin="round" />
+      <ellipse cx="78" cy="136" rx="6" ry="2" fill="#3b2a20" />
+    </g>
+  </defs>
+</svg>
+
+<div class="sobre" id="sobre" role="button" tabindex="0" aria-label="Abrir">
+  <div>
+    <div class="sobre-estrella">✦</div>
+    <p class="sobre-t">Mona, te tengo algo</p>
+    <p class="sobre-s">súbele el volumen y toca aquí</p>
+  </div>
+</div>
+
+<div class="musica" id="musica">
+  <button class="disco" id="disco" type="button" aria-label="Pausar o seguir la canción"></button>
+  <div class="cancion"><b>Tenías que ser tú</b><span>Silvana Estrada &amp; Daniel, Me Estás Matando</span></div>
+  <div class="yt"><p class="yt-pista">dale play aquí ♪</p><div id="yt"></div></div>
+</div>
+
+<main>
+
+  <!-- PORTADA -->
+  <header class="portada">
+    <svg class="ilustra" viewBox="0 0 300 350" role="img" aria-label="El principito en su planeta junto a su rosa">
+      <g class="asteroide" filter="url(#acuarela)">
+        <use href="#planeta" xlink:href="#planeta" />
+        <!-- humito del volcán -->
+        <circle cx="80" cy="128" r="4" fill="#fff" opacity=".18" />
+        <circle cx="84" cy="120" r="5" fill="#fff" opacity=".12" />
+        <!-- rosa con su campana -->
+        <path d="M220,146 C220,136 221,126 220,114" stroke="#3f7a4e" stroke-width="2" fill="none" />
+        <path d="M220,132 C212,128 208,130 206,134 C212,136 216,135 220,132 Z" fill="#5c9a68" />
+        <path d="M220,124 C228,120 232,122 234,126 C228,128 224,127 220,124 Z" fill="#5c9a68" />
+        <path d="M212,112 C210,102 218,96 220,100 C222,96 230,102 228,112 C224,118 216,118 212,112 Z" fill="#d2464f" stroke="#8c2733" stroke-width="1.2" />
+        <path d="M216,104 C219,108 222,106 224,103" stroke="#8c2733" stroke-width="1" fill="none" />
+        <path d="M199,148 L199,108 C199,86 241,86 241,108 L241,148" fill="rgba(220,235,255,0.10)" stroke="rgba(235,245,255,0.75)" stroke-width="1.3" />
+        <path d="M205,110 C205,98 212,93 218,92" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none" stroke-linecap="round" />
+        <use href="#principito" xlink:href="#principito" />
+      </g>
+    </svg>
+
+    <p class="para">para mona</p>
+    <h1 class="titulo">Feliz cumpleaños,<span>mona</span></h1>
+    <p class="bajada">Te hice esta cosita con el principito, un zorro y una rosa.</p>
+    <p class="baja">baja despacito ↓</p>
+  </header>
+
+  <!-- I. EL ZORRO -->
+  <section class="capitulo">
+    <svg class="ilustra" viewBox="0 0 200 160" role="img" aria-label="El zorro sentado en un trigal">
+      <g filter="url(#acuarela)">
+        <g>
+          <path class="trigo" d="M18,158 C18,140 20,128 22,112" stroke="#d9a63a" stroke-width="2" fill="none" />
+          <path class="trigo" d="M30,158 C31,138 33,124 34,106" stroke="#e3b44c" stroke-width="2" fill="none" />
+          <path class="trigo" d="M160,158 C160,140 162,128 164,110" stroke="#d9a63a" stroke-width="2" fill="none" />
+          <path class="trigo" d="M172,158 C173,138 176,124 178,104" stroke="#e3b44c" stroke-width="2" fill="none" />
+          <path class="trigo" d="M184,158 C184,142 186,130 188,118" stroke="#d9a63a" stroke-width="2" fill="none" />
+          <ellipse cx="22" cy="108" rx="3" ry="8" fill="#f2c14e" />
+          <ellipse cx="34" cy="102" rx="3" ry="8" fill="#f2c14e" />
+          <ellipse cx="164" cy="106" rx="3" ry="8" fill="#f2c14e" />
+          <ellipse cx="178" cy="100" rx="3" ry="8" fill="#f2c14e" />
+          <ellipse cx="188" cy="114" rx="3" ry="8" fill="#f2c14e" />
+        </g>
+        <path class="cola" d="M74,140 C34,144 20,108 42,92 C40,112 54,126 80,128 Z" fill="#e5803c" stroke="#7a3d1a" stroke-width="1.4" stroke-linejoin="round" />
+        <path d="M42,92 C36,100 36,108 40,114 C44,106 46,98 42,92 Z" fill="#fbeee0" />
+        <path d="M72,142 C62,112 76,82 96,74 C114,82 124,112 118,142 Z" fill="#e8843f" stroke="#7a3d1a" stroke-width="1.4" stroke-linejoin="round" />
+        <path d="M94,84 C102,98 105,118 100,140 L88,140 C84,118 86,98 94,84 Z" fill="#fbeee0" />
+        <path d="M86,48 L82,20 L100,42 Z" fill="#e8843f" stroke="#7a3d1a" stroke-width="1.4" stroke-linejoin="round" />
+        <path d="M86,42 L85,28 L94,40 Z" fill="#5a2c14" />
+        <path d="M100,44 L106,17 L114,46 Z" fill="#e8843f" stroke="#7a3d1a" stroke-width="1.4" stroke-linejoin="round" />
+        <path d="M104,42 L106,26 L110,43 Z" fill="#5a2c14" />
+        <path d="M80,62 C80,46 98,38 114,46 L142,58 C134,66 120,72 106,74 C92,76 80,72 80,62 Z" fill="#e8843f" stroke="#7a3d1a" stroke-width="1.4" stroke-linejoin="round" />
+        <path d="M106,66 C116,68 128,64 140,59 C132,68 118,73 106,74 Z" fill="#fbeee0" />
+        <circle cx="142" cy="58" r="3" fill="#2c2a35" />
+        <path d="M104,55 C107,52 111,52 113,55" stroke="#2c2a35" stroke-width="1.8" fill="none" stroke-linecap="round" />
+        <path d="M88,140 L88,146 M100,140 L100,146" stroke="#7a3d1a" stroke-width="3" stroke-linecap="round" />
+      </g>
+    </svg>
+    <div class="hoja">
+      <span class="num">capítulo uno</span>
+      <h2>El zorro</h2>
+      <p class="cita">“Si vienes, por ejemplo, a las cuatro de la tarde, desde las tres comenzaré a ser feliz.”<small>El zorro, al principito</small></p>
+      <p>Me pasó igualito con tu cumpleaños. Llevo como una semana pensando qué hacerte, qué escribirte y cómo hacer que hoy te sientas muy querida desde que te despiertes.</p>
+      <p>O sea que yo ya andaba feliz desde antes. Contigo me pasa mucho eso, hasta esperarte me gusta.</p>
+      <span class="mano">Yo ya estaba feliz desde las tres.</span>
+    </div>
+  </section>
+
+  <!-- II. LA ROSA -->
+  <section class="capitulo">
+    <svg class="ilustra" viewBox="0 0 200 170" role="img" aria-label="Una rosa roja bajo su campana de cristal">
+      <g filter="url(#acuarela)">
+        <g opacity=".28">
+          <circle cx="30" cy="120" r="9" fill="#d2464f" /><path d="M30,129 L30,165" stroke="#3f7a4e" stroke-width="2" />
+          <circle cx="56" cy="132" r="7" fill="#d2464f" /><path d="M56,139 L56,165" stroke="#3f7a4e" stroke-width="2" />
+          <circle cx="150" cy="128" r="8" fill="#d2464f" /><path d="M150,136 L150,165" stroke="#3f7a4e" stroke-width="2" />
+          <circle cx="176" cy="116" r="9" fill="#d2464f" /><path d="M176,125 L176,165" stroke="#3f7a4e" stroke-width="2" />
+        </g>
+        <path d="M100,164 C100,140 102,110 100,76" stroke="#3f7a4e" stroke-width="3" fill="none" />
+        <path d="M100,128 C86,118 76,122 72,130 C84,134 92,133 100,128 Z" fill="#5c9a68" stroke="#2e5a3a" stroke-width="1.2" />
+        <path d="M101,108 C114,98 124,100 128,108 C116,112 108,112 101,108 Z" fill="#5c9a68" stroke="#2e5a3a" stroke-width="1.2" />
+        <path d="M95,140 L91,136 M105,118 L109,114" stroke="#2e5a3a" stroke-width="1.4" />
+        <path d="M80,66 C74,44 92,30 100,40 C108,30 126,44 120,66 C114,82 86,82 80,66 Z" fill="#d2464f" stroke="#8c2733" stroke-width="1.6" stroke-linejoin="round" />
+        <path d="M88,56 C92,64 108,64 112,54 C108,46 100,44 96,50" stroke="#8c2733" stroke-width="1.3" fill="none" />
+        <path d="M84,70 C92,76 108,76 116,70" stroke="#8c2733" stroke-width="1.2" fill="none" opacity=".7" />
+        <path d="M64,166 L64,62 C64,14 136,14 136,62 L136,166" fill="rgba(220,235,255,0.10)" stroke="rgba(235,245,255,0.85)" stroke-width="1.6" />
+        <path d="M74,64 C74,38 86,28 98,26" stroke="rgba(255,255,255,0.75)" stroke-width="3" fill="none" stroke-linecap="round" />
+        <path d="M56,166 L144,166" stroke="rgba(235,245,255,0.6)" stroke-width="2" stroke-linecap="round" />
+      </g>
+    </svg>
+    <div class="hoja">
+      <span class="num">capítulo dos</span>
+      <h2>La rosa</h2>
+      <p class="cita">“El tiempo que perdiste por tu rosa hace que tu rosa sea tan importante.”<small>El zorro, que sabía mucho</small></p>
+      <p>Un día el principito encontró un jardín lleno de rosas igualitas a la suya y le dio duro. Después entendió que ninguna era como la de él, porque esa era la que él había cuidado.</p>
+      <p>Yo eso lo tengo claro contigo, mona. Hay mucha gente en el mundo y tú eres <em>mi rosa</em>.</p>
+      <p>Gracias por dejarme estar en tu vida, por dejarme conocerte poquito a poquito y por todos los ratos que me sacas aunque tengas la semana a reventar. Me siento muy de buenas de tenerte, de verdad. Hay días que todavía no me la creo.</p>
+    </div>
+  </section>
+
+  <!-- III. LO ESENCIAL -->
+  <section class="capitulo">
+    <div class="hoja">
+      <span class="num">capítulo tres</span>
+      <h2>Lo esencial</h2>
+      <p class="cita">“Solo se ve bien con el corazón. Lo esencial es invisible a los ojos.”</p>
+
+      <input class="interruptor" type="checkbox" id="boa" />
+      <label class="boa-btn" for="boa" aria-label="Toca el dibujo para ver lo que hay adentro">
+        <svg viewBox="0 0 280 130">
+          <g filter="url(#acuarela)">
+            <g id="elefante" transform="translate(-16,4)">
+              <ellipse cx="128" cy="98" rx="40" ry="20" fill="#9aa0ad" stroke="#4a4f5c" stroke-width="1.3" />
+              <circle cx="166" cy="88" r="15" fill="#9aa0ad" stroke="#4a4f5c" stroke-width="1.3" />
+              <path d="M156,80 C146,74 140,86 146,96 C152,100 158,96 156,80 Z" fill="#b5bac5" stroke="#4a4f5c" stroke-width="1.1" />
+              <path d="M178,92 C188,98 194,108 200,114" stroke="#9aa0ad" stroke-width="7" fill="none" stroke-linecap="round" />
+              <circle cx="170" cy="84" r="1.6" fill="#2c2a35" />
+              <path d="M100,112 L100,120 M116,114 L116,120 M140,114 L140,120 M154,112 L154,120" stroke="#9aa0ad" stroke-width="7" stroke-linecap="round" />
+            </g>
+            <path id="boaRelleno" d="M14,121 C40,120 62,114 76,96 C96,58 138,48 164,76 C180,94 190,112 214,117 C236,121 256,121 268,121 Z" fill="#7a6a58" fill-opacity="1" stroke="#3b332b" stroke-width="2" stroke-linejoin="round" />
+            <path d="M8,122 L272,122" stroke="#3b332b" stroke-width="2" stroke-linecap="round" />
+          </g>
+        </svg>
+      </label>
+      <p class="boa-etiqueta"><span class="antes">¿un sombrero? tócalo</span><span class="despues">era una boa que se tragó un elefante</span></p>
+
+      <p>Los grandes veían un sombrero. El principito sabía que adentro había un elefante.</p>
+      <p>Que eres linda lo ve cualquiera. Pero a mí me tocó ver lo de adentro: cómo escuchas a la gente, lo juiciosa que eres hasta cuando estás muerta del cansancio, que te ríes primero con los ojos, que eres fuerte y a la vez muy tierna.</p>
+      <p>Eso no sale en las fotos, y es lo que yo más amo de ti.</p>
+    </div>
+  </section>
+
+  <!-- IV. LOS ATARDECERES -->
+  <section class="capitulo">
+    <svg class="ilustra" viewBox="0 0 220 150" role="img" aria-label="Una silla en un planeta pequeño frente al atardecer">
+      <circle cx="110" cy="92" r="70" fill="url(#ocaso)" />
+      <g filter="url(#acuarela)">
+        <path d="M10,150 C40,122 180,122 210,150 Z" fill="#7c5c45" stroke="#4d382a" stroke-width="1.4" />
+        <path d="M86,130 L86,108 L104,108 L104,130 M86,118 L104,118 M104,108 L106,90 M86,108 L88,90 M88,92 L106,92" stroke="#3b2a20" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+      </g>
+    </svg>
+    <div class="hoja">
+      <span class="num">capítulo cuatro</span>
+      <h2>Los atardeceres</h2>
+      <p class="cita">“¡Un día vi ponerse el sol cuarenta y cuatro veces!”<small>El principito, que tenía un planeta chiquito</small></p>
+      <p>En su planeta le bastaba con correr la silla unos pasos para ver otro atardecer. Yo no tengo planeta, pero te dejo seis, uno por cada cosa que te deseo este año.</p>
+
+      <div class="soles-caja">
+        <input class="interruptor" type="radio" name="sol" id="s1" />
+        <input class="interruptor" type="radio" name="sol" id="s2" />
+        <input class="interruptor" type="radio" name="sol" id="s3" />
+        <input class="interruptor" type="radio" name="sol" id="s4" />
+        <input class="interruptor" type="radio" name="sol" id="s5" />
+        <input class="interruptor" type="radio" name="sol" id="s6" />
+        <div class="soles">
+          <label class="sol" for="s1"><i></i>uno</label>
+          <label class="sol" for="s2"><i></i>dos</label>
+          <label class="sol" for="s3"><i></i>tres</label>
+          <label class="sol" for="s4"><i></i>cuatro</label>
+          <label class="sol" for="s5"><i></i>cinco</label>
+          <label class="sol" for="s6"><i></i>seis</label>
+        </div>
+        <div class="deseo">
+          <span class="d0">toca un sol y mira qué te deseo</span>
+          <span class="d1">Que te rías mucho, de esas risas que hacen doler la barriga.</span>
+          <span class="d2">Que el trabajo te devuelva aunque sea un poquito de todo lo que le das.</span>
+          <span class="d3">Días suaves. Y los que no sean tan suaves, que no te toque pasarlos sola.</span>
+          <span class="d4">Que te salgan los mejores tiros en el golf. Y que me sigas ganando… a veces.</span>
+          <span class="d5">Tiempo para ti sin sentirte culpable: pilates, barre, siesta, lo que quieras.</span>
+          <span class="d6">Que nunca dudes de lo mucho que vales. Y si dudas, me preguntas a mí.</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- V. TU PLANETA -->
+  <section class="capitulo" id="final">
+    <input class="interruptor" type="checkbox" id="vela" />
+    <svg class="ilustra" id="escenaVela" viewBox="0 0 300 200" style="overflow:hidden" role="img" aria-label="El principito junto a un pastelito con una vela">
+      <g class="asteroide" filter="url(#acuarela)">
+        <use href="#planeta" xlink:href="#planeta" />
+        <!-- pastelito -->
+        <rect x="168" y="108" width="36" height="20" rx="3" fill="#f6c9cf" stroke="#9c5a66" stroke-width="1.3" />
+        <path d="M168,112 C174,118 178,110 184,116 C190,120 194,110 204,114 L204,108 L168,108 Z" fill="#fff6ef" stroke="#9c5a66" stroke-width="1.1" />
+        <circle cx="176" cy="121" r="1.4" fill="#d2464f" /><circle cx="190" cy="123" r="1.4" fill="#6fa77f" /><circle cx="198" cy="119" r="1.4" fill="#f2c14e" />
+        <rect x="184" y="92" width="4" height="16" rx="1" fill="#fdf6e6" stroke="#9c5a66" stroke-width="1" />
+        <path d="M184,96 L188,99 M184,101 L188,104" stroke="#d2464f" stroke-width="1" />
+        <g id="llama">
+          <ellipse cx="186" cy="85" rx="5" ry="9" fill="#f2c14e" opacity=".45" />
+          <path d="M186,77 C190,82 191,88 186,92 C181,88 182,82 186,77 Z" fill="#ffd36b" />
+          <path d="M186,83 C188,86 188,89 186,91 C184,89 184,86 186,83 Z" fill="#fff4cf" />
+        </g>
+        <g id="humo">
+          <path d="M186,90 C182,84 190,80 186,72 C182,66 190,62 186,56" stroke="rgba(255,255,255,0.7)" stroke-width="2" fill="none" stroke-linecap="round" />
+        </g>
+        <use href="#principito" xlink:href="#principito" transform="translate(-34,4)" />
+      </g>
+    </svg>
+    <div class="chispas" aria-hidden="true"><i style="--x:127px;--y:-31px;--c:#f2c14e;--t:0.05s"></i><i style="--x:130px;--y:45px;--c:#fdf6e6;--t:0.18s"></i><i style="--x:84px;--y:88px;--c:#ffd9a0;--t:0.09s"></i><i style="--x:34px;--y:102px;--c:#f6c9cf;--t:0.15s"></i><i style="--x:19px;--y:88px;--c:#f2c14e;--t:0.23s"></i><i style="--x:-38px;--y:86px;--c:#fdf6e6;--t:0.22s"></i><i style="--x:-54px;--y:19px;--c:#ffd9a0;--t:0.16s"></i><i style="--x:-122px;--y:35px;--c:#f6c9cf;--t:0.17s"></i><i style="--x:-141px;--y:-19px;--c:#f2c14e;--t:0.16s"></i><i style="--x:-129px;--y:-74px;--c:#fdf6e6;--t:0.22s"></i><i style="--x:-83px;--y:-144px;--c:#ffd9a0;--t:0.16s"></i><i style="--x:-36px;--y:-143px;--c:#f6c9cf;--t:0.13s"></i><i style="--x:19px;--y:-126px;--c:#f2c14e;--t:0.02s"></i><i style="--x:51px;--y:-128px;--c:#fdf6e6;--t:0.14s"></i><i style="--x:66px;--y:-91px;--c:#ffd9a0;--t:0.05s"></i><i style="--x:112px;--y:-101px;--c:#f6c9cf;--t:0.23s"></i></div>
+    <div class="hoja">
+      <span class="num">capítulo cinco</span>
+      <h2>Tu planeta</h2>
+      <p style="text-align:center">Antes de leer lo último, cierra los ojos, pide un deseo y sopla la vela.</p>
+
+      <div class="vela-btns">
+        <label class="boton" for="vela">Soplar la vela</label>
+      </div>
+
+      <div class="carta">
+        <p class="encab">Feliz cumpleaños, mona</p>
+        <p>Te amo. No sé decirlo más bonito que así.</p>
+        <p>Gracias por ser como eres y por dejarme estar en tu vida. Me siento muy afortunado, y esa suerte la quiero cuidar todos los días.</p>
+        <p>No te voy a prometer un año perfecto porque eso no existe. Lo que sí te prometo es estar. En los días buenos y en los pesados, en los planes que se nos caen y en los que sí salen, en el golf, en los tacos, en los buenos días que te mando antes de que te despiertes.</p>
+        <p>Quiero hacerte muy feliz, mona. Eso fue lo que yo pedí cuando soplaste la vela, y mañana voy a pedir lo mismo.</p>
+        <p>Hoy celebro que naciste. Y que me tocó conocerte.</p>
+        <p class="firma">— J.</p>
+        <p class="posdata">P.D. Al final del libro el principito le dice al aviador que él va a vivir en una estrella, y que por eso cuando mire el cielo de noche va a sentir que todas se ríen. Hoy por la noche mira para arriba. Una de esas soy yo, riéndome de lo feliz que me haces.</p>
+      </div>
+    </div>
+    <p class="fin">ahora tienes estrellas que saben reír ✦</p>
+  </section>
+
+</main>
+
+<script>
+/* música: arranca con el primer toque, porque los celulares no dejan sonar nada antes */
+(function () {
+  var ID = '8bIN7f-NaaU';
+  var sobre = document.getElementById('sobre');
+  var musica = document.getElementById('musica');
+  var player = null, listo = false, quiere = false;
+
+  window.onYouTubeIframeAPIReady = function () {
+    player = new YT.Player('yt', {
+      width: 220, height: 124, videoId: ID,
+      playerVars: { playsinline: 1, loop: 1, playlist: ID, rel: 0 },
+      events: {
+        onReady: function () { listo = true; if (quiere) player.playVideo(); },
+        onStateChange: function (e) {
+          musica.classList.toggle('sonando', e.data === 1);
+          if (e.data === 1) musica.classList.remove('ayuda');
+        }
+      }
+    });
+  };
+  var api = document.createElement('script');
+  api.src = 'https://www.youtube.com/iframe_api';
+  document.head.appendChild(api);
+
+  function abrir() {
+    if (sobre.classList.contains('fuera')) return;
+    sobre.classList.add('fuera');
+    musica.classList.add('on');
+    quiere = true;
+    if (listo) player.playVideo();
+    setTimeout(function () {
+      if (!player) { musica.classList.remove('on'); return; }
+      if (!player.getPlayerState || player.getPlayerState() !== 1) musica.classList.add('ayuda');
+    }, 3000);
+  }
+  sobre.addEventListener('click', abrir);
+  sobre.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') abrir(); });
+
+  document.getElementById('disco').addEventListener('click', function () {
+    if (!player || !player.getPlayerState) return;
+    if (player.getPlayerState() === 1) player.pauseVideo(); else player.playVideo();
+  });
+})();
+</script>
+
+</body>
+</html>
