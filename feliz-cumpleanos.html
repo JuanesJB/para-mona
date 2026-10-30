@@ -31,7 +31,7 @@
 
   body {
     min-height: 100vh;
-    background: linear-gradient(180deg, var(--noche) 0%, var(--noche-2) 55%, #2c3f6c 100%) fixed;
+    background: var(--noche);
     color: var(--tinta);
     font-family: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
     overflow-x: hidden;
@@ -46,12 +46,16 @@
     z-index: 0;
     pointer-events: none;
     overflow: hidden;
+    background: linear-gradient(180deg, var(--noche) 0%, var(--noche-2) 55%, #2c3f6c 100%);
+    transform: translateZ(0);
   }
 
   .capa {
     position: absolute;
     inset: 0;
     animation: titilar-cielo var(--d, 4s) ease-in-out infinite alternate;
+    will-change: opacity;
+    transform: translateZ(0);
   }
   .c1 {
     --d: 3.2s;
@@ -181,6 +185,7 @@
     opacity: 0;
     transform: rotate(-28deg);
     animation: fugaz 9s linear infinite;
+    will-change: transform, opacity;
   }
   .f1 { top: 14%; left: 70%; animation-delay: 2s; }
   .f2 { top: 38%; left: 85%; animation-delay: 6.5s; animation-duration: 11s; }
@@ -698,10 +703,6 @@
 <!-- piezas reutilizables -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
   <defs>
-    <filter id="acuarela" x="-10%" y="-10%" width="120%" height="120%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="2" seed="7" result="ruido" />
-      <feDisplacementMap in="SourceGraphic" in2="ruido" scale="3.2" />
-    </filter>
 
     <radialGradient id="roca" cx="40%" cy="25%" r="80%">
       <stop offset="0%" stop-color="#e3c697" />
@@ -766,7 +767,7 @@
   <!-- PORTADA -->
   <header class="portada">
     <svg class="ilustra" viewBox="0 0 300 350" role="img" aria-label="El principito en su planeta junto a su rosa">
-      <g class="asteroide" filter="url(#acuarela)">
+      <g class="asteroide">
         <use href="#planeta" xlink:href="#planeta" />
         <!-- humito del volcán -->
         <circle cx="80" cy="128" r="4" fill="#fff" opacity=".18" />
@@ -792,7 +793,7 @@
   <!-- I. EL ZORRO -->
   <section class="capitulo">
     <svg class="ilustra" viewBox="0 0 200 160" role="img" aria-label="El zorro sentado en un trigal">
-      <g filter="url(#acuarela)">
+      <g>
         <g>
           <path class="trigo" d="M18,158 C18,140 20,128 22,112" stroke="#d9a63a" stroke-width="2" fill="none" />
           <path class="trigo" d="M30,158 C31,138 33,124 34,106" stroke="#e3b44c" stroke-width="2" fill="none" />
@@ -833,7 +834,7 @@
   <!-- II. LA ROSA -->
   <section class="capitulo">
     <svg class="ilustra" viewBox="0 0 200 170" role="img" aria-label="Una rosa roja bajo su campana de cristal">
-      <g filter="url(#acuarela)">
+      <g>
         <g opacity=".28">
           <circle cx="30" cy="120" r="9" fill="#d2464f" /><path d="M30,129 L30,165" stroke="#3f7a4e" stroke-width="2" />
           <circle cx="56" cy="132" r="7" fill="#d2464f" /><path d="M56,139 L56,165" stroke="#3f7a4e" stroke-width="2" />
@@ -872,7 +873,7 @@
       <input class="interruptor" type="checkbox" id="boa" />
       <label class="boa-btn" for="boa" aria-label="Toca el dibujo para ver lo que hay adentro">
         <svg viewBox="0 0 280 130">
-          <g filter="url(#acuarela)">
+          <g>
             <g id="elefante" transform="translate(-16,4)">
               <ellipse cx="128" cy="98" rx="40" ry="20" fill="#9aa0ad" stroke="#4a4f5c" stroke-width="1.3" />
               <circle cx="166" cy="88" r="15" fill="#9aa0ad" stroke="#4a4f5c" stroke-width="1.3" />
@@ -898,7 +899,7 @@
   <section class="capitulo">
     <svg class="ilustra" viewBox="0 0 220 150" role="img" aria-label="Una silla en un planeta pequeño frente al atardecer">
       <circle cx="110" cy="92" r="70" fill="url(#ocaso)" />
-      <g filter="url(#acuarela)">
+      <g>
         <path d="M10,150 C40,122 180,122 210,150 Z" fill="#7c5c45" stroke="#4d382a" stroke-width="1.4" />
         <path d="M86,130 L86,108 L104,108 L104,130 M86,118 L104,118 M104,108 L106,90 M86,108 L88,90 M88,92 L106,92" stroke="#3b2a20" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
       </g>
@@ -941,7 +942,7 @@
   <section class="capitulo" id="final">
     <input class="interruptor" type="checkbox" id="vela" />
     <svg class="ilustra" id="escenaVela" viewBox="0 0 300 200" style="overflow:hidden" role="img" aria-label="El principito junto a un pastelito con una vela">
-      <g class="asteroide" filter="url(#acuarela)">
+      <g class="asteroide">
         <use href="#planeta" xlink:href="#planeta" />
         <!-- pastelito -->
         <rect x="168" y="108" width="36" height="20" rx="3" fill="#f6c9cf" stroke="#9c5a66" stroke-width="1.3" />
