@@ -685,28 +685,6 @@
   .sonando .disco { animation: rodar 3.2s linear infinite; }
   @keyframes rodar { to { transform: rotate(360deg); } }
 
-  /* el reproductor queda guardado; si el celular no deja arrancar solo, aparece para darle play */
-  .yt {
-    position: absolute;
-    right: 0;
-    bottom: calc(100% + 10px);
-    width: 220px;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.5s ease;
-  }
-  .yt iframe { display: block; width: 220px; height: 124px; border: 0; border-radius: 10px; }
-  .ayuda .yt { opacity: 1; pointer-events: auto; }
-  .yt-pista {
-    display: none;
-    font-family: 'Caveat', cursive;
-    font-size: 1.1rem;
-    color: var(--oro);
-    text-align: center;
-    margin-bottom: 6px;
-  }
-  .ayuda .yt-pista { display: block; }
-
   @media (prefers-reduced-motion: reduce) {
     *, *::before, *::after { animation: none !important; transition-duration: 0.01s !important; }
     .hoja, .ilustra { opacity: 1; transform: none; }
@@ -780,7 +758,7 @@
 
 <div class="musica" id="musica">
   <button class="disco" id="disco" type="button" aria-label="Pausar o seguir la canción"></button>
-  <div class="yt"><p class="yt-pista">dale play aquí ♪</p><div id="yt"></div></div>
+  <audio id="cancion" src="tenias-que-ser-tu.mp3" loop preload="auto"></audio>
 </div>
 
 <main>
@@ -1011,45 +989,25 @@
 <script>
 /* música: arranca con el primer toque, porque los celulares no dejan sonar nada antes */
 (function () {
-  var ID = '8bIN7f-NaaU';
   var sobre = document.getElementById('sobre');
   var musica = document.getElementById('musica');
-  var player = null, listo = false, quiere = false;
+  var cancion = document.getElementById('cancion');
 
-  window.onYouTubeIframeAPIReady = function () {
-    player = new YT.Player('yt', {
-      width: 220, height: 124, videoId: ID,
-      playerVars: { playsinline: 1, loop: 1, playlist: ID, rel: 0 },
-      events: {
-        onReady: function () { listo = true; if (quiere) player.playVideo(); },
-        onStateChange: function (e) {
-          musica.classList.toggle('sonando', e.data === 1);
-          if (e.data === 1) musica.classList.remove('ayuda');
-        }
-      }
-    });
-  };
-  var api = document.createElement('script');
-  api.src = 'https://www.youtube.com/iframe_api';
-  document.head.appendChild(api);
+  cancion.addEventListener('playing', function () { musica.classList.add('sonando'); });
+  cancion.addEventListener('pause', function () { musica.classList.remove('sonando'); });
 
   function abrir() {
     if (sobre.classList.contains('fuera')) return;
     sobre.classList.add('fuera');
     musica.classList.add('on');
-    quiere = true;
-    if (listo) player.playVideo();
-    setTimeout(function () {
-      if (!player) { musica.classList.remove('on'); return; }
-      if (!player.getPlayerState || player.getPlayerState() !== 1) musica.classList.add('ayuda');
-    }, 3000);
+    var intento = cancion.play();
+    if (intento && intento.catch) intento.catch(function () {});
   }
   sobre.addEventListener('click', abrir);
   sobre.addEventListener('keydown', function (e) { if (e.key === 'Enter' || e.key === ' ') abrir(); });
 
   document.getElementById('disco').addEventListener('click', function () {
-    if (!player || !player.getPlayerState) return;
-    if (player.getPlayerState() === 1) player.pauseVideo(); else player.playVideo();
+    if (cancion.paused) cancion.play(); else cancion.pause();
   });
 })();
 </script>
