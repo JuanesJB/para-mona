@@ -662,53 +662,34 @@
 
   .js .musica.on {
     position: fixed;
-    left: 50%;
-    bottom: calc(14px + env(safe-area-inset-bottom));
-    transform: translateX(-50%);
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
     z-index: 40;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    max-width: calc(100% - 32px);
-    padding: 7px 16px 7px 7px;
-    border-radius: 999px;
-    background: rgba(15,27,54,0.82);
-    -webkit-backdrop-filter: blur(8px);
-    backdrop-filter: blur(8px);
-    box-shadow: 0 0 0 1px rgba(242,193,78,0.25), 0 10px 24px -8px rgba(0,0,0,0.6);
+    display: block;
     animation: aparecer 0.8s ease both;
   }
 
   .disco {
     flex: none;
-    width: 38px;
-    height: 38px;
+    width: 30px;
+    height: 30px;
+    opacity: 0.85;
     border: 0;
     border-radius: 50%;
     cursor: pointer;
     background:
-      radial-gradient(circle, var(--oro) 0 5px, #1a1a22 6px 8px, transparent 9px),
+      radial-gradient(circle, var(--oro) 0 4px, #1a1a22 5px 6px, transparent 7px),
       repeating-radial-gradient(circle, #24242e 0 1.5px, #15151c 1.5px 3px);
-    box-shadow: 0 0 0 2px rgba(242,193,78,0.35);
+    box-shadow: 0 0 0 1.5px rgba(242,193,78,0.4), 0 4px 12px rgba(0,0,0,0.5);
   }
   .sonando .disco { animation: rodar 3.2s linear infinite; }
   @keyframes rodar { to { transform: rotate(360deg); } }
 
-  .cancion {
-    min-width: 0;
-    font-family: 'Caveat', cursive;
-    line-height: 1.1;
-    color: #fdf6e6;
-  }
-  .cancion b { display: block; font-size: 1.15rem; font-weight: 600; color: var(--oro); }
-  .cancion span { display: block; font-size: 0.92rem; opacity: 0.75; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-
   /* el reproductor queda guardado; si el celular no deja arrancar solo, aparece para darle play */
   .yt {
     position: absolute;
-    left: 50%;
+    right: 0;
     bottom: calc(100% + 10px);
-    transform: translateX(-50%);
     width: 220px;
     opacity: 0;
     pointer-events: none;
@@ -799,7 +780,6 @@
 
 <div class="musica" id="musica">
   <button class="disco" id="disco" type="button" aria-label="Pausar o seguir la canción"></button>
-  <div class="cancion"><b>Tenías que ser tú</b><span>Silvana Estrada &amp; Daniel, Me Estás Matando</span></div>
   <div class="yt"><p class="yt-pista">dale play aquí ♪</p><div id="yt"></div></div>
 </div>
 
